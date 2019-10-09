@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+   <title>Current Status</title>
+<script src="http://127.0.0.1:8080/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+                $.getJSON("config.json", function(json) {
+                var items = [];
+                $.each( json, function( key, val ) {
+                items.push( "<li id='" + key + "'>" + val + "</li>" );
+                var newdutyvalue = "";
+                if (key == "currentduty") {
+                   newdutyvalue = val;
+                   }
+                });
+                
+                $( "<ul/>", {
+                "class": "my-new-list",
+                html: items.join( "" )
+                }).appendTo( "body" );
+                var data = JSON.parse(json)
+                console.log(data);
+                var input = document.getElementById("setdutyrange");
+                input.value = newdutyvalue
+                console.log(items);
+                });
+</script>
+</head>
+<body>
+   <h1>Dildo Speed</h1>
+<input id="setdutyrange" type="range" min="-5" max="33" value="" step="1" name="range" oninput="showValue(this.value)"/>
+<br>        
+<iframe name="setLevel"></iframe>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+url = "/Level/" + newValue
+window.open(url, "setLevel");
+{% set duty = newValue %}
+}
+</script>
+
+<script type="text/javascript">
+    var previous = null;
+    var current = null;
+    setInterval(function reaaddutycycle(data) {
+        $.getJSON("config.json", function(json) {
+            current = JSON.stringify(json);            
+            if (previous && current && previous !== current) {
+                var input = document.getElementById("setdutyrange");
+                input.value = localStorage.getItem("33")
+                console.log('refresh');
+                location.reload();
+            }
+            previous = current;
+        });
+    }, 2000);   
+</script>
+
+</body>
+</html>
