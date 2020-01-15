@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 import json
 from flask import Flask, render_template, request
-app = Flask(__name__, static_folder='static' static_url_path='')
+app = Flask(__name__, static_folder=os.path.join(os.getcwd(),'web','static'))
 
 P_DILDO = 12 # adapt to your wiring
 fPWM = 50  # Hz (not higher with software PWM)
