@@ -11,9 +11,7 @@ fPWM = 50  # Hz (not higher with software PWM)
 global pwm
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(P_DILDO, GPIO.OUT)
-pwm = GPIO.PWM(abspath = os.path.abspath(__file__)
-dname = os.path.dirname(abspath)
-os.chdir(dname)
+pwm = GPIO.PWM
 P_DILDO, fPWM)
 pwm.start(0)
 
