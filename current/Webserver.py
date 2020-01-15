@@ -21,7 +21,7 @@ def main():
    return render_template('main.html')
 
 @app.route("/new/")
-def main():
+def new():
    return render_template('index_new.html')   
 
 @app.route("/jquery.min.js")
