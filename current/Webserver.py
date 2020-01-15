@@ -6,12 +6,15 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-P_DILDO = 12 # adapt to your wiring
+P_DILDO = 32 # adapt to your wiring
 fPWM = 50  # Hz (not higher with software PWM)
 global pwm
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(P_DILDO, GPIO.OUT)
-pwm = GPIO.PWM(P_DILDO, fPWM)
+pwm = GPIO.PWM(abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+P_DILDO, fPWM)
 pwm.start(0)
 
 with open('./templates/config.json', 'r') as f:
