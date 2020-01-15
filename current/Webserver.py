@@ -1,9 +1,14 @@
 # ...
 
+import os
 import RPi.GPIO as GPIO
 import json
 from flask import Flask, render_template, request
 app = Flask(__name__)
+
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
 
 P_DILDO = 12 # adapt to your wiring
 fPWM = 50  # Hz (not higher with software PWM)
