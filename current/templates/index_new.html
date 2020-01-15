@@ -42,9 +42,60 @@ https://templatemo.com/tm-530-mini-profile
               <div class="tm-welcome-left">
                 <h2 class="tm-welcome-title">Welcome to Mini Profile Page</h2>
                 <p class="pb-0">
-                  This is Bootstrap v4.3.1 parallax layout for you. Credit goes to <a rel="nofollow" href="https://www.pexels.com">Pexels</a> for 2 background images. In
-                  odio sapien, commodo id ullamcorper ac, dignissim at sapien.
-                  Nullam leo massa, vaius ac massa et, tincidunt imperdiet
+                  <script type="text/javascript">
+                $.getJSON("config.json", function(json) {
+                var items = [];
+                $.each( json, function( key, val ) {
+                items.push( "<li id='" + key + "'>" + val + "</li>" );
+                var newdutyvalue = "";
+                if (key == "currentduty") {
+                   newdutyvalue = val;
+                   }
+                });
+                
+                $( "<ul/>", {
+                "class": "my-new-list",
+                html: items.join( "" )
+                }).appendTo( "body" );
+                var data = JSON.parse(json)
+                console.log(data);
+                var input = document.getElementById("setdutyrange");
+                input.value = newdutyvalue
+                console.log(items);
+                });
+</script>
+</head>
+<body>
+   <h1>Dildo Speed</h1>
+<input id="setdutyrange" type="range" min="-5" max="33" value="" step="1" name="range" oninput="showValue(this.value)"/>
+<br>        
+<iframe name="setLevel"></iframe>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+url = "/Level/" + newValue
+window.open(url, "setLevel");
+{% set duty = newValue %}
+}
+</script>
+
+<script type="text/javascript">
+    var previous = null;
+    var current = null;
+    setInterval(function reaaddutycycle(data) {
+        $.getJSON("config.json", function(json) {
+            current = JSON.stringify(json);            
+            if (previous && current && previous !== current) {
+                var input = document.getElementById("setdutyrange");
+                input.value = localStorage.getItem("33")
+                console.log('refresh');
+                location.reload();
+            }
+            previous = current;
+        });
+    }, 2000);   
+</script>
                 turpis. </p>
               </div>
             </div>
