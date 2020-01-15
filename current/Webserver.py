@@ -20,6 +20,10 @@ with open('./templates/config.json', 'r') as f:
 def main():
    return render_template('main.html')
 
+@app.route("/new/")
+def main():
+   return render_template('index_new.html')   
+
 @app.route("/jquery.min.js")
 def jquery():
    return render_template('jquery.min.js')
