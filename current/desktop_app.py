@@ -1,16 +1,18 @@
+# ...
+
 import Tkinter
 import time
 import pygame
 import urllib2
-import config
 from urllib2 import urlopen
 import json
-# from ConfigParser import SafeConfigParser
 
 event = 0
 duty = 0
 
-config = {'dutytext': '0','currentduty': '0','newduty': '0'}
+config = {'currentduty': '0','dutytext': '0','newduty': '0'}
+with open('./templates/config.json', 'r') as f:
+     config = json.load(f)
 
 def joy_do():
     global joyval

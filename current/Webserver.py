@@ -1,5 +1,6 @@
+# ...
+
 import RPi.GPIO as GPIO
-import config
 import json
 from flask import Flask, render_template, request
 app = Flask(__name__)
