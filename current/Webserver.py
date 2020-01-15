@@ -20,7 +20,7 @@ with open('./templates/config.json', 'r') as f:
 def main():
    return render_template('main.html')
 
-@app.route("/new/")
+@app.route("/new.html")
 def new():
    return render_template('index_new.html')   
 
