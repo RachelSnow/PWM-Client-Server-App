@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-P_DILDO = 32 # adapt to your wiring
+P_DILDO = 12 # adapt to your wiring
 fPWM = 50  # Hz (not higher with software PWM)
 global pwm
 GPIO.setmode(GPIO.BOARD)
