@@ -126,17 +126,29 @@ img {
 	<!-- Bootstrap CSS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Snippet of code from old Main -->
-	
-	<!-- jQuery then Bootstrap -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-    <div class="container">
-      <div class="row">
-        <h1>Rachel Snow's Dildo Controler</h1>
-    <input id="setdutyrange" type="range" min="-5" max="33" value="" step="1" name="range" oninput="showValue(this.value)"/>
-<br>        
+	<script type="text/javascript">
+                $.getJSON("config.json", function(json) {
+                var items = [];
+                $.each( json, function( key, val ) {
+                items.push( "<li id='" + key + "'>" + val + "</li>" );
+                var newdutyvalue = "";
+                if (key == "currentduty") {
+                   newdutyvalue = val;
+                   }
+                });
+
+                $( "<ul/>", {
+                "class": "my-new-list",
+                html: items.join( "" )
+                }).appendTo( "body" );
+                var data = JSON.parse(json)
+                console.log(data);
+                var input = document.getElementById("setdutyrange");
+                input.value = newdutyvalue
+                console.log(items);
+                });
+</script>
+
 <iframe name="setLevel"></iframe>
 
 <script type="text/javascript">
@@ -153,7 +165,7 @@ window.open(url, "setLevel");
     var current = null;
     setInterval(function reaaddutycycle(data) {
         $.getJSON("config.json", function(json) {
-            current = JSON.stringify(json);            
+            current = JSON.stringify(json);
             if (previous && current && previous !== current) {
                 var input = document.getElementById("setdutyrange");
                 input.value = localStorage.getItem("33")
@@ -162,19 +174,87 @@ window.open(url, "setLevel");
             }
             previous = current;
         });
-    }, 2000);   
+    }, 2000);
 </script>
-	
-	    <div class="slider">
+
+	<!-- jQuery then Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+    <div class="container">
+      <div class="row">
+        <h1>Rachel Snow's Dildo Controler</h1>
+        <div class="slider">
 			<div class="foo">
 			<a href="#slide-1">10%</a> &ndash; <a href="#slide-2">20%</a> &ndash; <a href="#slide-3">30%</a> &ndash; <a href="#slide-4">40%</a> &ndash; <a href="#slide-5">50%</a>
 				</div><br>
           <div class="slides">
-            <div id="slide-1"> <img src="static/img/1.png" class="img-responsive" alt=""/>  <input id="setdutyrange" type="hidden" name="quantity" value="6" onload="showValue(this.value)"></div>
-            <div id="slide-2"> <img src="static/img/2.png" class="img-responsive" alt=""/><input id="setdutyrange" type="hidden" name="quantity"value="12" onload="showValue(this.value)"></div>
-            <div id="slide-3"> <img src="static/img/3.png" class="img-responsive" alt=""/><input id="setdutyrange" type="hidden" name="quantity" value="18" onload="showValue(this.value)"></div>
-            <div id="slide-4"> <img src="static/img/4.png" class="img-responsive" alt=""/><input id="setdutyrange" type="hidden" name="quantity"value="24" onload="showValue(this.value)"> </div>
-            <div id="slide-5"> <img src="static/img/5.png" class="img-responsive" alt=""/> <input id="setdutyrange" type="hidden" name="quantity" value="32" onload="showValue(this.value)"></div>
+        <div id="slide-1"> <img src="static/img/1.png" class="img-responsive" alt=""/>  <input id="setdutyrange" type="hidden" name="quantity" value="6">
+			document.getElementById('setdutyrange'').value
+			<iframe name="setLevel"></iframe>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+url = "/Level/" + newValue
+window.open(url, "setLevel");
+{% set duty = newValue %}
+}
+</script>
+</div>
+            <div id="slide-2"> <img src="static/img/2.png" class="img-responsive" alt=""/><input id="setdutyrange" type="hidden" name="quantity"value="12" onload="showValue(this.value)">
+			document.getElementById('setdutyrange'').value
+			<iframe name="setLevel"></iframe>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+url = "/Level/" + newValue
+window.open(url, "setLevel");
+{% set duty = newValue %}
+}
+</script>
+</div>
+            <div id="slide-3"> <img src="static/img/3.png" class="img-responsive" alt=""/><input id="setdutyrange" type="hidden" name="quantity" value="18" onload="showValue(this.value)">
+			document.getElementById('setdutyrange'').value
+			<iframe name="setLevel"></iframe>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+url = "/Level/" + newValue
+window.open(url, "setLevel");
+{% set duty = newValue %}
+}
+</script>
+</div>
+            <div id="slide-4"> <img src="static/img/4.png" class="img-responsive" alt=""/><input id="setdutyrange" type="hidden" name="quantity"value="24" onload="showValue(this.value)">
+			document.getElementById('setdutyrange'').value
+			<iframe name="setLevel"></iframe>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+url = "/Level/" + newValue
+window.open(url, "setLevel");
+{% set duty = newValue %}
+}
+</script>
+</div>
+            <div id="slide-5"> <img src="static/img/5.png" class="img-responsive" alt=""/> <input id="setdutyrange" type="hidden" name="quantity" value="32" onload="showValue(this.value)">
+			document.getElementById('setdutyrange'').value
+			<iframe name="setLevel"></iframe>
+
+<script type="text/javascript">
+function showValue(newValue)
+{
+url = "/Level/" + newValue
+window.open(url, "setLevel");
+{% set duty = newValue %}
+}
+</script>
+</div>
           </div>
         </div>
       </div>
