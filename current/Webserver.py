@@ -21,7 +21,7 @@ with open('./templates/config.json', 'r') as f:
 def main():
    return render_template('main.html')
 
-@app.route("/test/")
+@app.route("/test.html")
 def test():
    return render_template('test.html')
 
