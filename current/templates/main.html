@@ -18,9 +18,7 @@
                 "class": "my-new-list",
                 html: items.join( "" )
                 }).appendTo( "body" );
-                var stringified = JSON.stringify(json);
-                var data = JSON.parse(stringified)
-                // var data = json
+                var data = JSON.parse(json);
                 console.log(data);
                 var input = document.getElementById("setdutyrange");
                 input.value = newdutyvalue
