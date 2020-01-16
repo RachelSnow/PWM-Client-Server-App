@@ -13,7 +13,6 @@
                    newdutyvalue = val;
                    }
                 });
-                
                 $( "<ul/>", {
                 "class": "my-new-list",
                 html: items.join( "" )
@@ -21,7 +20,7 @@
                 var data = JSON.stringify(json);
                 console.log(data);
                 var input = document.getElementById("setdutyrange");
-                input.value = newdutyvalue
+                input.value = newdutyvalue;
                 console.log(items);
                 });
 </script>
