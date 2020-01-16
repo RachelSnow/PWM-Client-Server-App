@@ -25,6 +25,10 @@ def main():
 def test():
    return render_template('test.html')
 
+@app.route("/test2.html")
+def test2():
+   return render_template('test2.html')
+
 @app.route("/new.html")
 def new():
    return render_template('index_new.html')   
