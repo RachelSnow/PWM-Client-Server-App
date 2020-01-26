@@ -70,7 +70,9 @@ sys.stderr = MyLogger(logger, logging.ERROR)
 i = 0
 
 # Loop forever, doing something useful hopefully:
-while True:
+# while True:
+
+
 @app.route("/")
 def main():
    return render_template('main.html')
