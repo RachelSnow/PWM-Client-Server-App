@@ -15,6 +15,7 @@ app = Flask(__name__)
 P_DILDO = 12 # adapt to your wiring
 fPWM = 50  # Hz (not higher with software PWM)
 global pwm
+GPIO.cleanup() # cleanup all GPIO 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(P_DILDO, GPIO.OUT)
 pwm = GPIO.PWM(P_DILDO, fPWM)
