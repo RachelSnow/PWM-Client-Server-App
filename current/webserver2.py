@@ -9,7 +9,7 @@ import os
 import RPi.GPIO as GPIO
 import json
 from flask import Flask, render_template, request
-app = Flask(__webserver__)
+app = Flask(__name__)
 
 
 P_DILDO = 12 # adapt to your wiring
@@ -118,5 +118,5 @@ def getLevel():
    response = config['dutytext']
    return response
 
-if __webserver__ == "__main__":
+if __name__ == "__main__":
    app.run(host='0.0.0.0', port=8080, debug=True)
